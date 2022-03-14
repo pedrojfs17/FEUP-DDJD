@@ -1,35 +1,33 @@
-extends Area2D
+extends KinematicBody2D
 signal hit
 
+var GRAVITY = 25
+var SPEED = -300
 
-# Declare member variables here. Examples:
-export var speed = 400 # How fast the player will move (pixels/sec).
-var screen_size # Size of the game window.
-
+var velocity = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hide()
-	screen_size = get_viewport_rect().size
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	var velocity = Vector2.ZERO # The player's movement vector.
+func _physics_process(delta):
+	if velocity.y < -50:
+		velocity.y = -50
+		
+	velocity.y = velocity.y + GRAVITY
+	
 	if Input.is_action_pressed("move_up"):
-		velocity.y = -1
+		velocity.y = SPEED
+		
+	velocity = move_and_slide(velocity, Vector2.UP)
+	
+	if is_on_floor():
+		$AnimatedSprite.play("Run")
+	elif Input.is_action_pressed("move_up"):
+		$AnimatedSprite.play("Jump")
 	else:
-		velocity.y = 1
-
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-		$AnimatedSprite.play()
-	else:
-		$AnimatedSprite.stop()
-
-	position += velocity * delta
-	position.x = clamp(position.x, 0, screen_size.x)
-	position.y = clamp(position.y, 0, screen_size.y)
+		$AnimatedSprite.play("Fall")
 
 
 func _on_Player_body_entered(body):
@@ -42,3 +40,4 @@ func start(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
+
