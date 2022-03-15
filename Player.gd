@@ -16,6 +16,7 @@ func _physics_process(delta):
 		velocity.y = -50
 		
 	velocity.y = velocity.y + GRAVITY
+	velocity.x = 200
 	
 	if Input.is_action_pressed("move_up"):
 		velocity.y = SPEED

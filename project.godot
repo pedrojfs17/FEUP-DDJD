@@ -24,6 +24,10 @@ config/name="ElDorado"
 run/main_scene="res://MainScene.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/height=768
+
 [gdnative]
 
 singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
