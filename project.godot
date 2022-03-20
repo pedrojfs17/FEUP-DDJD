@@ -25,7 +25,6 @@ run/main_scene="res://scenes/Main.tscn"
 
 [autoload]
 
-CollisionLayers="*res://scripts/CollisionLayers.gd"
 Moving="*res://scripts/Moving.gd"
 
 [display]
@@ -112,6 +111,8 @@ shoot={
 2d_physics/layer_1="player"
 2d_physics/layer_2="powerups"
 2d_physics/layer_3="enemies"
+2d_physics/layer_4="walls"
+2d_physics/layer_5="projectile"
 
 [physics]
 
