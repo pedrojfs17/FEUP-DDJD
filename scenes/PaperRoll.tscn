@@ -37,6 +37,7 @@ radius = 23.0
 height = 12.0
 
 [node name="PaperRoll" type="Area2D"]
+collision_layer = 2
 script = ExtResource( 23 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

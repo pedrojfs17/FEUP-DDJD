@@ -1,6 +1,6 @@
 extends Node
 
-var SPEED: float = -7.5
+var SPEED: float = -4.5
 
 func _process(delta: float):
-	SPEED -= 0.1 * delta
+	SPEED -= 0.01 * delta

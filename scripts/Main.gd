@@ -16,7 +16,7 @@ func _add_wall(position: Vector2, size: Vector2):
 	collision_object.add_child(collision_shape)
 	
 	collision_object.collision_layer = 0
-	collision_object.set_collision_layer_bit(CollisionLayers.Layers.WALL, true)
+	collision_object.set_collision_layer_bit(3, true)
 	collision_object.collision_mask = 0
 	
 	add_child(collision_object)
