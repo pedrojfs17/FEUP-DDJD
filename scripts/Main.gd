@@ -21,4 +21,3 @@ func _add_wall(position: Vector2, size: Vector2):
 	
 	add_child(collision_object)
 	
-	

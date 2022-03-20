@@ -9,6 +9,7 @@ func _process(delta: float):
 	position.x += Moving.SPEED
 
 func _on_PaperRoll_body_entered(body):
+	# Do something with the paper roll
 	$AnimatedSprite.play("Catch")
 
 func _on_AnimatedSprite_animation_finished():
