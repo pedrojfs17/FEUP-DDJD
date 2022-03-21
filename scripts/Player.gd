@@ -4,11 +4,9 @@ export (PackedScene) var Projectile
 var GRAVITY = 15
 var SPEED = -50
 
-var score = 0
-var time = 0
 var velocity = Vector2.ZERO
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	velocity.y += GRAVITY
 	
 	if Input.is_action_pressed("move_up"):
@@ -27,17 +25,8 @@ func _physics_process(delta):
 	else:
 		$AnimatedSprite.play("Fall")
 	
-	time += delta
-	if int(time) == 1:
-		add_score()
-		print(score)
-		time=0
-		
 
 func shoot():
 	var b = Projectile.instance()
 	owner.add_child(b)
 	b.transform = $Position2D.global_transform
-
-func add_score():
-	score += 1

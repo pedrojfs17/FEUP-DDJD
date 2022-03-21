@@ -25,7 +25,7 @@ run/main_scene="res://scenes/Main.tscn"
 
 [autoload]
 
-Moving="*res://scripts/Moving.gd"
+Globals="*res://scripts/Globals.gd"
 
 [display]
 

@@ -33,20 +33,21 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 23.0
-height = 12.0
+radius = 21.0
+height = 0.0
 
 [node name="PaperRoll" type="Area2D"]
 collision_layer = 2
 script = ExtResource( 23 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 0.1, 0.1 )
+modulate = Color( 0.901961, 0.72549, 0.0313726, 1 )
+scale = Vector2( 0.075, 0.075 )
 frames = SubResource( 1 )
 animation = "Catch"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -8, 4 )
+position = Vector2( -5, 4 )
 shape = SubResource( 2 )
 
 [connection signal="body_entered" from="." to="." method="_on_PaperRoll_body_entered"]

@@ -11,6 +11,12 @@ position = Vector2( 1.90735e-06, 1.90735e-06 )
 scale = Vector2( 0.686198, 0.686198 )
 texture = ExtResource( 1 )
 
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 0, -461 )
+scale = Vector2( 0.686198, 5.1556 )
+texture = ExtResource( 1 )
+vframes = 3
+
 [node name="Enemy" type="Area2D" parent="."]
 collision_layer = 4
 
@@ -22,7 +28,7 @@ polygon = PoolVector2Array( -78, -54, 77, -26, 80, 68, -83, 30 )
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Secret PowerUp"]
-polygon = PoolVector2Array( -83, -133, 81, -132, 82, 16, -81, -12 )
+polygon = PoolVector2Array( 56, -792, 80, -792, 82, 16, 56, 8 )
 
-[connection signal="body_entered" from="Enemy" to="." method="_on_banner_body_entered"]
-[connection signal="body_entered" from="Secret PowerUp" to="." method="_on_BannerTop_body_entered"]
+[connection signal="body_entered" from="Enemy" to="." method="_on_BannerEnemy_body_entered"]
+[connection signal="body_entered" from="Secret PowerUp" to="." method="_on_BannerPowerUp_body_entered"]
