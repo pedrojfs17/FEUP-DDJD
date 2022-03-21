@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name PaperRoll
+
 func _process(_delta: float):
 	position.x -= Globals.SPEED
 

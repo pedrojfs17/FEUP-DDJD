@@ -15,7 +15,9 @@ const PAPER_ROLL = [
 
 # Enemies
 const ENEMIES = [
-	preload("res://scenes/Banner.tscn")
+	preload("res://scenes/Banner.tscn"),
+	preload("res://scenes/StaticGroundEnemy.tscn"),
+	preload("res://scenes/WalkingGroundEnemy.tscn")
 ]
 
 # Power-Ups
@@ -56,14 +58,14 @@ func _add_wall(position: Vector2, size: Vector2):
 func _spawn_object(spawnables):
 	var object = spawnables[randi() % spawnables.size()].instance()
 	$Spawnables.add_child(object)
-	object.position = _get_spawnable_position()
+	object.position = _get_spawnable_position(object.get_class()=="GroundEnemy")
 
 
-func _get_spawnable_position() -> Vector2:
+func _get_spawnable_position(ground) -> Vector2:
 	var area = $SpawnArea
 	return area.rect_position + Vector2(
 		randf() * area.rect_size.x,
-		randf() * area.rect_size.y
+		545 if ground else randf() * area.rect_size.y
 	)
 
 
