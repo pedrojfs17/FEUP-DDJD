@@ -8,8 +8,9 @@ var SCORE: float = 0
 var PAPER_ROLLS: int = 0
 
 func _process(delta: float):
+	if SPEED < 25:
+		SPEED += INCREASE * delta
 	SCORE += SPEED * delta
-	SPEED += INCREASE * delta
 	
 func banner_power_up():
 	SCORE += 100

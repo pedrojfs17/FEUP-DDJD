@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Node2D
 
 func _process(_delta: float):
 	position.x -= Globals.SPEED + 3
