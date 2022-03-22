@@ -2,7 +2,7 @@ extends Node2D
 
 # Cumulative probability
 # p.e ENEMY_PROB = x -> number in [PAPER_ROLL_PROB, x[
-const PAPER_ROLL_PROB = 0.75
+const PAPER_ROLL_PROB = 0.15
 const ENEMY_PROB = 1.0
 const POWER_UP_PROB = 1.0
 
