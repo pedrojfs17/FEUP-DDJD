@@ -10,6 +10,9 @@ const FLATULENCE_MAX = 5.0
 const FLATULENCE_MIN = 0.0
 var FLATULENCE
 
+var INVINCIBLE = false
+var invincibilityTime = 0
+
 var velocity = Vector2.ZERO
 
 func _ready():
@@ -25,7 +28,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("move_up"):
 		velocity.y = max(velocity.y + SPEED, -500)
-		FLATULENCE = max(FLATULENCE - 2 * delta, 0)
+		FLATULENCE = max(FLATULENCE - 1.2 * delta, 0)
 	elif velocity.y < 0:
 		FLATULENCE = min(FLATULENCE + delta, 5)
 		velocity.y += 30
@@ -50,9 +53,25 @@ func _physics_process(delta):
 		$AnimatedSprite.play("Jump")
 	else:
 		$AnimatedSprite.play("Fall")
-	
+		
+	if INVINCIBLE:
+		invincibilityTime += delta
+		if (int(invincibilityTime) >= 5):
+			print("")
+			self.set_collision_layer_bit(1, true)
+			self.set_collision_layer_bit(7, false)
+			INVINCIBLE = false
+			invincibilityTime = 0
+		
+		
 
 func shoot():
 	var b = Projectile.instance()
 	owner.add_child(b)
 	b.transform = $Position2D.global_transform
+	
+func catch_invincibility():
+	self.set_collision_layer_bit(1, false)
+	self.set_collision_layer_bit(7, true)
+	print("Disabled enemy collision")
+	INVINCIBLE = true

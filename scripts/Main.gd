@@ -3,7 +3,7 @@ extends Node2D
 # Cumulative probability
 # p.e ENEMY_PROB = x -> number in [PAPER_ROLL_PROB, x[
 const PAPER_ROLL_PROB = 0.15
-const ENEMY_PROB = 1.0
+const ENEMY_PROB = 0.8
 const POWER_UP_PROB = 1.0
 
 # Paper roll patterns
@@ -21,7 +21,9 @@ const ENEMIES = [
 ]
 
 # Power-Ups
-#const POWER_UPS = []
+const POWER_UPS = [
+	preload("res://scenes/PowerUp.tscn")
+]
 
 
 func _reset_game():
@@ -76,5 +78,5 @@ func _on_SpawnTimer_timeout():
 		_spawn_object(PAPER_ROLL)
 	elif number < ENEMY_PROB:
 		_spawn_object(ENEMIES)
-	#else:
-	#	_spawn_object(POWER_UPS)
+	elif number < POWER_UP_PROB:
+		_spawn_object(POWER_UPS)
