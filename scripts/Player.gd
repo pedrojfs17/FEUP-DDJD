@@ -12,6 +12,7 @@ var FLATULENCE
 
 var INVINCIBLE = false
 var invincibilityTime = 0
+var speedup_speed = 0
 
 var velocity = Vector2.ZERO
 
@@ -57,13 +58,13 @@ func _physics_process(delta):
 	if INVINCIBLE:
 		invincibilityTime += delta
 		if (int(invincibilityTime) >= 5):
-			print("Not invincible")
-			self.set_collision_layer_bit(0, true)
-			self.set_collision_layer_bit(6, false)
-			self.set_collision_mask_bit(2,true)
-			$Sprite.visible = false
 			INVINCIBLE = false
 			invincibilityTime = 0
+			if speedup_speed != 0:
+				Globals.SPEED = speedup_speed
+				speedup_speed = 0
+			else:
+				  $Sprite.visible = false
 		
 		
 
@@ -73,9 +74,23 @@ func shoot():
 	b.transform = $Position2D.global_transform
 	
 func catch_invincibility():
+	disable_collision()
+	$Sprite.visible = true
+	
+func catch_speedup():
+	disable_collision()
+	speedup_speed=Globals.SPEED
+	Globals.SPEED += 20
+
+func disable_collision():
 	self.set_collision_layer_bit(0, false)
 	self.set_collision_layer_bit(6, true)
 	self.set_collision_mask_bit(2,false)
 	print("Disabled enemy collision")
-	$Sprite.visible = true
 	INVINCIBLE = true
+	
+func enable_collisions():
+	print("Not invincible")
+	self.set_collision_layer_bit(0, true)
+	self.set_collision_layer_bit(6, false)
+	self.set_collision_mask_bit(2,true)

@@ -22,7 +22,8 @@ const ENEMIES = [
 
 # Power-Ups
 const POWER_UPS = [
-	preload("res://scenes/PowerUp.tscn")
+	preload("res://scenes/Invincibility.tscn"),
+	preload("res://scenes/SpeedUp.tscn")
 ]
 
 
