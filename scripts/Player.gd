@@ -57,9 +57,11 @@ func _physics_process(delta):
 	if INVINCIBLE:
 		invincibilityTime += delta
 		if (int(invincibilityTime) >= 5):
-			print("")
-			self.set_collision_layer_bit(1, true)
-			self.set_collision_layer_bit(7, false)
+			print("Not invincible")
+			self.set_collision_layer_bit(0, true)
+			self.set_collision_layer_bit(6, false)
+			self.set_collision_mask_bit(2,true)
+			$Sprite.visible = false
 			INVINCIBLE = false
 			invincibilityTime = 0
 		
@@ -71,7 +73,9 @@ func shoot():
 	b.transform = $Position2D.global_transform
 	
 func catch_invincibility():
-	self.set_collision_layer_bit(1, false)
-	self.set_collision_layer_bit(7, true)
+	self.set_collision_layer_bit(0, false)
+	self.set_collision_layer_bit(6, true)
+	self.set_collision_mask_bit(2,false)
 	print("Disabled enemy collision")
+	$Sprite.visible = true
 	INVINCIBLE = true

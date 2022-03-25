@@ -13,13 +13,13 @@ animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Catch",
-"speed": 5.0
+"speed": 13.0
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 31.0161
 
-[node name="Node2D" type="Area2D"]
+[node name="PowerUp" type="Area2D"]
 collision_layer = 2
 script = ExtResource( 1 )
 
@@ -32,3 +32,4 @@ animation = "Catch"
 shape = SubResource( 2 )
 
 [connection signal="body_entered" from="." to="." method="_on_PowerUp_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

@@ -33,11 +33,15 @@ autostart = true
 
 [node name="Despawner" type="Area2D" parent="."]
 collision_layer = 32
-collision_mask = 6
+collision_mask = 22
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Despawner"]
 position = Vector2( -1056, 384 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Despawner"]
+position = Vector2( 1918, 383 )
 shape = SubResource( 1 )
 
 [node name="GUI" type="Node" parent="."]
