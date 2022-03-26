@@ -2,8 +2,8 @@ extends Node2D
 
 # Cumulative probability
 # p.e ENEMY_PROB = x -> number in [PAPER_ROLL_PROB, x[
-const PAPER_ROLL_PROB = 0.15
-const ENEMY_PROB = 0.8
+const PAPER_ROLL_PROB = 0.0
+const ENEMY_PROB = 0.0
 const POWER_UP_PROB = 1.0
 
 # Paper roll patterns
@@ -15,15 +15,15 @@ const PAPER_ROLL = [
 
 # Enemies
 const ENEMIES = [
-	preload("res://scenes/Banner.tscn"),
-	preload("res://scenes/StaticGroundEnemy.tscn"),
-	preload("res://scenes/WalkingGroundEnemy.tscn")
+	preload("res://scenes/Enemies/Banner.tscn"),
+	preload("res://scenes/Enemies/StaticGroundEnemy.tscn"),
+	preload("res://scenes/Enemies/WalkingGroundEnemy.tscn")
 ]
 
 # Power-Ups
 const POWER_UPS = [
-	preload("res://scenes/Invincibility.tscn"),
-	preload("res://scenes/SpeedUp.tscn")
+	preload("res://scenes/PowerUps/Invincibility.tscn"),
+	preload("res://scenes/PowerUps/SpeedUp.tscn")
 ]
 
 

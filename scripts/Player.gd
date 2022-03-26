@@ -11,8 +11,10 @@ const FLATULENCE_MIN = 0.0
 var FLATULENCE
 
 var INVINCIBLE = false
-var invincibilityTime = 0
-var speedup_speed = 0
+
+var SHIELD_TIME = -1
+var SPEEDUP_TIME = -1
+var SPEEDUP_SPEED = -1
 
 var velocity = Vector2.ZERO
 
@@ -36,15 +38,16 @@ func _physics_process(delta):
 	else:
 		FLATULENCE = min(FLATULENCE + delta, 5)
 	
+	if Input.is_action_just_pressed("shoot") and FLATULENCE > 1:
+		shoot()
+		FLATULENCE = max(FLATULENCE - 1, 0)
+		
 	FlatulenceMeter.value = FLATULENCE
 	FlatulenceMeter.tint_progress = Color(1, FLATULENCE / FLATULENCE_MAX, FLATULENCE / FLATULENCE_MAX, 1)
 	
 	if FLATULENCE == 0:
 		get_tree().change_scene("res://scenes/Main.tscn")
 		print("You lost due to shit yourself!")
-	
-	if Input.is_action_just_pressed("shoot"):
-		shoot()
 		
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
@@ -54,19 +57,20 @@ func _physics_process(delta):
 		$AnimatedSprite.play("Jump")
 	else:
 		$AnimatedSprite.play("Fall")
-		
-	if INVINCIBLE:
-		invincibilityTime += delta
-		if (int(invincibilityTime) >= 5):
-			INVINCIBLE = false
-			invincibilityTime = 0
-			if speedup_speed != 0:
-				Globals.SPEED = speedup_speed
-				speedup_speed = 0
-			else:
-				  $Sprite.visible = false
-		
-		
+
+	if SPEEDUP_TIME >= 0:
+		SPEEDUP_TIME += delta
+		if SPEEDUP_TIME > 2:
+			SPEEDUP_TIME = -1
+			Globals.SPEED = SPEEDUP_SPEED
+			enable_collisions()
+	
+	if SHIELD_TIME >= 0:
+		SHIELD_TIME += delta
+		if SHIELD_TIME > 5:
+			SHIELD_TIME = -1
+			$Shield.visible = false
+			enable_collisions()
 
 func shoot():
 	var b = Projectile.instance()
@@ -74,23 +78,29 @@ func shoot():
 	b.transform = $Position2D.global_transform
 	
 func catch_invincibility():
+	print("Caught Invincibility")
+	SHIELD_TIME = 0
 	disable_collision()
-	$Sprite.visible = true
+	$Shield.visible = true
 	
 func catch_speedup():
+	print("Caught Speed")
+	if SPEEDUP_TIME == -1:
+		SPEEDUP_SPEED = Globals.SPEED
+	SPEEDUP_TIME = 0
 	disable_collision()
-	speedup_speed=Globals.SPEED
-	Globals.SPEED += 20
+	Globals.SPEED = 100
 
 func disable_collision():
 	self.set_collision_layer_bit(0, false)
 	self.set_collision_layer_bit(6, true)
 	self.set_collision_mask_bit(2,false)
-	print("Disabled enemy collision")
 	INVINCIBLE = true
+	print("Disabled enemy collision")
 	
 func enable_collisions():
-	print("Not invincible")
 	self.set_collision_layer_bit(0, true)
 	self.set_collision_layer_bit(6, false)
 	self.set_collision_mask_bit(2,true)
+	INVINCIBLE = false
+	print("Not invincible")

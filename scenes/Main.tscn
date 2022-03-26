@@ -40,10 +40,6 @@ script = ExtResource( 2 )
 position = Vector2( -1056, 384 )
 shape = SubResource( 1 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Despawner"]
-position = Vector2( 1918, 383 )
-shape = SubResource( 1 )
-
 [node name="GUI" type="Node" parent="."]
 
 [node name="Score" type="Label" parent="GUI"]
