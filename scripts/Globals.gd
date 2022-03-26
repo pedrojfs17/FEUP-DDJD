@@ -1,6 +1,6 @@
 extends Node
 
-const INITIAL_SPEED: float = 5.0
+const INITIAL_SPEED: float = 3.0
 const INCREASE: float = 0.1
 
 var SPEED: float = INITIAL_SPEED
