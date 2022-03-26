@@ -114,6 +114,7 @@ shoot={
 2d_physics/layer_4="walls"
 2d_physics/layer_5="projectile"
 2d_physics/layer_6="despawner"
+2d_physics/layer_7="invincibility"
 
 [physics]
 
