@@ -16,6 +16,8 @@ var SHIELD_TIME = -1
 var SPEEDUP_TIME = -1
 var SPEEDUP_SPEED = -1
 
+var RECOVERING = false
+
 var velocity = Vector2.ZERO
 
 func _ready():
@@ -29,7 +31,7 @@ func _ready():
 func _physics_process(delta):
 	velocity.y += GRAVITY
 	
-	if Input.is_action_pressed("move_up"):
+	if Input.is_action_pressed("move_up") and not RECOVERING:
 		velocity.y = max(velocity.y + SPEED, -500)
 		FLATULENCE = max(FLATULENCE - 1.2 * delta, 0)
 	elif velocity.y < 0:
@@ -45,9 +47,8 @@ func _physics_process(delta):
 	FlatulenceMeter.value = FLATULENCE
 	FlatulenceMeter.tint_progress = Color(1, FLATULENCE / FLATULENCE_MAX, FLATULENCE / FLATULENCE_MAX, 1)
 	
-	if FLATULENCE == 0:
-		get_tree().change_scene("res://scenes/Main.tscn")
-		print("You lost due to shit yourself!")
+	if FLATULENCE == 0: RECOVERING = true
+	elif FLATULENCE > 1 and RECOVERING: RECOVERING = false
 		
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
