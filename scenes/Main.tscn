@@ -21,15 +21,23 @@ script = ExtResource( 4 )
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 256, 712 )
 
-[node name="SpawnArea" type="ReferenceRect" parent="."]
-margin_left = 1224.0
-margin_top = 168.0
-margin_right = 1384.0
-margin_bottom = 640.0
-
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="SpawnArea" type="ReferenceRect" parent="Spawns"]
+margin_left = 1250.0
+margin_top = 168.0
+margin_right = 1410.0
+margin_bottom = 640.0
+
+[node name="GroundEnemy" type="Position2D" parent="Spawns"]
+position = Vector2( 1250, 710 )
+
+[node name="FloatingEnemy" type="Position2D" parent="Spawns"]
+position = Vector2( 1250, 384 )
 
 [node name="Despawner" type="Area2D" parent="."]
 collision_layer = 32

@@ -2,8 +2,8 @@ extends Node2D
 
 # Cumulative probability
 # p.e ENEMY_PROB = x -> number in [PAPER_ROLL_PROB, x[
-const PAPER_ROLL_PROB = 0.15
-const ENEMY_PROB = 0.8
+const PAPER_ROLL_PROB = 0.35
+const ENEMY_PROB = 0.80
 const POWER_UP_PROB = 1.0
 
 # Paper roll patterns
@@ -62,26 +62,21 @@ func _add_wall(position: Vector2, size: Vector2):
 func _spawn_object(spawnables):
 	var object = spawnables[randi() % spawnables.size()].instance()
 	$Spawnables.add_child(object)
+	object.set_owner(self)
 	object.position = _get_spawnable_position(object)
-	print(object.position)
 
 
 func _get_spawnable_position(object) -> Vector2:
-	var area = $SpawnArea
-	var y = randf() * area.rect_size.y
-	
-	if object.get_class()=="GroundEnemy":
-		y = 545
-	elif object.get_class()=="FloatingEnemy":
-		if y <= 500:
-			y = 500
-		elif y >= 1000:
-			y = 1000
-	print(area.rect_position)
-	return area.rect_position + Vector2(
-		randf() * area.rect_size.x,
-		y
-	)
+	if object.get_class() == "GroundEnemy":
+		return $Spawns/GroundEnemy.position
+	elif object.get_class() == "FloatingEnemy":
+		return $Spawns/FloatingEnemy.position
+	else:
+		var area = $Spawns/SpawnArea
+		return area.rect_position + Vector2(
+			randf() * area.rect_size.x,
+			randf() * area.rect_size.y
+		)
 
 
 func _on_SpawnTimer_timeout():
