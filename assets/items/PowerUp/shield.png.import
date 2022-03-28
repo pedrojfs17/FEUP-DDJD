@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/frame 4.png-a07d5217f0955bbc29af0aceb4c2e9b8.stex"
+path="res://.import/shield.png-744376a47e2fddf404a286a890f6ce3a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/Speed/frame 4.png"
-dest_files=[ "res://.import/frame 4.png-a07d5217f0955bbc29af0aceb4c2e9b8.stex" ]
+source_file="res://assets/items/PowerUp/shield.png"
+dest_files=[ "res://.import/shield.png-744376a47e2fddf404a286a890f6ce3a.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

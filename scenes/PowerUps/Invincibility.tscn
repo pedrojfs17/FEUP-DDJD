@@ -1,19 +1,17 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/items/PowerUp/frame 6.png" type="Texture" id=1]
-[ext_resource path="res://assets/items/PowerUp/frame 1.png" type="Texture" id=2]
-[ext_resource path="res://assets/items/PowerUp/frame 3.png" type="Texture" id=3]
-[ext_resource path="res://assets/items/PowerUp/frame 2.png" type="Texture" id=4]
-[ext_resource path="res://assets/items/PowerUp/frame 5.png" type="Texture" id=5]
-[ext_resource path="res://assets/items/PowerUp/frame 4.png" type="Texture" id=6]
+[ext_resource path="res://assets/items/PowerUp/pill_0.png" type="Texture" id=1]
+[ext_resource path="res://assets/items/PowerUp/pill_1.png" type="Texture" id=2]
+[ext_resource path="res://assets/items/PowerUp/pill_2.png" type="Texture" id=3]
+[ext_resource path="res://assets/items/PowerUp/pill_3.png" type="Texture" id=4]
 [ext_resource path="res://scripts/Invincibility.gd" type="Script" id=7]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 1 ) ],
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "Catch",
-"speed": 13.0
+"speed": 8.0
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
@@ -24,8 +22,9 @@ collision_layer = 2
 script = ExtResource( 7 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 0.194969, 0.194969 )
-frames = SubResource( 1 )
+position = Vector2( -1, 1 )
+scale = Vector2( 0.185, 0.185 )
+frames = SubResource( 3 )
 animation = "Catch"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

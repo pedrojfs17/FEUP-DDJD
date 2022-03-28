@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/frame 1.png-fec6e03e1ac6a2b8b49c5e226dc56cd2.stex"
+path="res://.import/bean_1.png-d312c9bdc10dcfed4878386e5366fb24.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/PowerUp/frame 1.png"
-dest_files=[ "res://.import/frame 1.png-fec6e03e1ac6a2b8b49c5e226dc56cd2.stex" ]
+source_file="res://assets/items/Speed/bean_1.png"
+dest_files=[ "res://.import/bean_1.png-d312c9bdc10dcfed4878386e5366fb24.stex" ]
 
 [params]
 

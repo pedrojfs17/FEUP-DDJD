@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/player/jump-0.png" type="Texture" id=5]
 [ext_resource path="res://assets/player/fall-0.png" type="Texture" id=6]
 [ext_resource path="res://scenes/Projectile.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/items/PowerUp/spr_shield.png" type="Texture" id=8]
+[ext_resource path="res://assets/items/PowerUp/shield.png" type="Texture" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -50,5 +50,6 @@ position = Vector2( 60, 1 )
 
 [node name="Shield" type="Sprite" parent="."]
 visible = false
-scale = Vector2( 0.266187, 0.266187 )
+position = Vector2( -4, 0 )
+scale = Vector2( 0.41603, 0.41603 )
 texture = ExtResource( 8 )
