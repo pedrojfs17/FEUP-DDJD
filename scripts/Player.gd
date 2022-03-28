@@ -74,6 +74,7 @@ func _physics_process(delta):
 			enable_collisions()
 
 func shoot():
+	$Sounds/Shoot.play()
 	var b = Projectile.instance()
 	owner.add_child(b)
 	b.transform = $Position2D.global_transform

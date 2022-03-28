@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Despawner.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/FlatulenceMeter.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scripts/LabelPaperRoll.gd" type="Script" id=7]
+[ext_resource path="res://assets/sounds/background.ogg" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 33, 385 )
@@ -73,6 +74,11 @@ script = ExtResource( 7 )
 [node name="FlatulenceMeter" parent="GUI" instance=ExtResource( 6 )]
 margin_top = 24.0
 margin_bottom = 80.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -10.0
+autoplay = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 [connection signal="area_entered" from="Despawner" to="Despawner" method="_on_Despawner_area_entered"]
