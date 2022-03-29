@@ -11,6 +11,7 @@ func _ready():
 func game_over():
 	$ScoreTimer.stop()
 	$MobTimer.stop()
+	get_tree().change_scene("res://scenes/Menus/TitleScreen.tscn")
 
 func new_game():
 	score = 0

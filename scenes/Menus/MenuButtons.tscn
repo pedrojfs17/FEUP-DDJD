@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/fonts/ChargeVectorThin-d9qdR.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/Menus/MenuButtons.gd" type="Script" id=2]
+[ext_resource path="res://scenes/Menus/MenuButtonsNormal.tres" type="StyleBox" id=3]
+[ext_resource path="res://scenes/Menus/MenuButtonsHover.tres" type="StyleBox" id=4]
+[ext_resource path="res://scenes/Menus/MenuButtonsPressed.tres" type="StyleBox" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 1 )
+
+[node name="MenuButtons" type="VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+
+[node name="New Game" type="Button" parent="."]
+margin_right = 221.0
+margin_bottom = 42.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/normal = ExtResource( 3 )
+text = " NEW GAME "
+
+[node name="How To Play" type="Button" parent="."]
+margin_top = 46.0
+margin_right = 221.0
+margin_bottom = 88.0
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/normal = ExtResource( 3 )
+text = " HOW TO PLAY "
+
+[node name="Exit Game" type="Button" parent="."]
+margin_top = 92.0
+margin_right = 221.0
+margin_bottom = 134.0
+custom_fonts/font = SubResource( 4 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/normal = ExtResource( 3 )
+text = " EXIT GAME "
+
+[connection signal="pressed" from="New Game" to="." method="_on_New_Game_pressed"]
+[connection signal="pressed" from="How To Play" to="." method="_on_How_To_Play_pressed"]
+[connection signal="pressed" from="Exit Game" to="." method="_on_Exit_Game_pressed"]

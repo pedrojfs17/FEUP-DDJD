@@ -5,7 +5,7 @@ func _process(_delta: float):
 
 func _on_BannerEnemy_body_entered(_body):
 	print("You lost!")
-	var err = get_tree().change_scene("res://scenes/Main.tscn")
+	var err = get_tree().change_scene("res://scenes/Menus/TitleScreen.tscn")
 	if err: print("Failing to load scene!")
 
 func _on_BannerPowerUp_body_entered(_body):

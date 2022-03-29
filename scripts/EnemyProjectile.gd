@@ -5,5 +5,5 @@ func _physics_process(_delta):
 
 func _on_EnemyProjectile_body_entered(body):
 	print("You lost!")
-	get_tree().change_scene("res://scenes/Main.tscn")
+	get_tree().change_scene("res://scenes/Menus/TitleScreen.tscn")
 	
