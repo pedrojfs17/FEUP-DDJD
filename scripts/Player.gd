@@ -6,7 +6,7 @@ var FlatulenceMeter
 var GRAVITY = 15
 var SPEED = -50
 
-const FLATULENCE_MAX = 5.0
+const FLATULENCE_MAX = 7.0
 const FLATULENCE_MIN = 0.0
 var FLATULENCE
 
@@ -33,12 +33,12 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("move_up") and not RECOVERING:
 		velocity.y = max(velocity.y + SPEED, -500)
-		FLATULENCE = max(FLATULENCE - 1.2 * delta, 0)
+		FLATULENCE = max(FLATULENCE - 2 * delta, 0)
 	elif velocity.y < 0:
-		FLATULENCE = min(FLATULENCE + delta, 5)
+		FLATULENCE = min(FLATULENCE + delta, FLATULENCE_MAX)
 		velocity.y += 30
 	else:
-		FLATULENCE = min(FLATULENCE + delta, 5)
+		FLATULENCE = min(FLATULENCE + delta, FLATULENCE_MAX)
 	
 	if Input.is_action_just_pressed("shoot") and FLATULENCE > 1:
 		shoot()
