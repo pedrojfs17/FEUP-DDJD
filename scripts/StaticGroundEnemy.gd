@@ -4,8 +4,6 @@ func _process(_delta: float):
 	position.x -= Globals.SPEED
 
 func _on_EnemyDoctor_body_entered(_body):
-	print("You lost!")
-	var err = get_tree().change_scene("res://scenes/Menus/TitleScreen.tscn")
-	if err: print("Failing to load scene!")
+	get_tree().change_scene("res://scenes/Menus/LosingScreen.tscn")
 
 func get_class(): return "GroundEnemy"
