@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/propulsor.ogg-8c68571e43c8aaf6329386c67bfda7de.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/propulsor.ogg"
+dest_files=[ "res://.import/propulsor.ogg-8c68571e43c8aaf6329386c67bfda7de.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

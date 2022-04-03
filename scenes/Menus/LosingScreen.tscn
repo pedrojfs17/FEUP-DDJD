@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/fonts/ChargeVectorThin-d9qdR.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/Menus/MenuButtonsNormal.tres" type="StyleBox" id=2]
 [ext_resource path="res://scenes/Menus/MenuButtonsHover.tres" type="StyleBox" id=3]
 [ext_resource path="res://scenes/Menus/MenuButtonsPressed.tres" type="StyleBox" id=4]
 [ext_resource path="res://scripts/LosingScreen.gd" type="Script" id=5]
+[ext_resource path="res://assets/sounds/hit.ogg" type="AudioStream" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.54902, 0.176471, 0.0980392, 1 )
@@ -74,31 +75,34 @@ align = 1
 valign = 1
 uppercase = true
 
-[node name="Restart" type="Button" parent="PanelContainer/MarginContainer/Rows"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/Rows"]
 margin_left = 376.0
 margin_top = 580.0
 margin_right = 547.0
-margin_bottom = 622.0
+margin_bottom = 668.0
 size_flags_horizontal = 4
-size_flags_vertical = 4
+
+[node name="Restart" type="Button" parent="PanelContainer/MarginContainer/Rows/VBoxContainer"]
+margin_right = 171.0
+margin_bottom = 42.0
 custom_fonts/font = SubResource( 4 )
 custom_styles/hover = ExtResource( 3 )
 custom_styles/pressed = ExtResource( 4 )
 custom_styles/normal = ExtResource( 2 )
 text = "  Restart  "
 
-[node name="Menu" type="Button" parent="PanelContainer/MarginContainer/Rows"]
-margin_left = 403.0
-margin_top = 626.0
-margin_right = 520.0
-margin_bottom = 668.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[node name="Menu" type="Button" parent="PanelContainer/MarginContainer/Rows/VBoxContainer"]
+margin_top = 46.0
+margin_right = 171.0
+margin_bottom = 88.0
 custom_fonts/font = SubResource( 4 )
 custom_styles/hover = ExtResource( 3 )
 custom_styles/pressed = ExtResource( 4 )
 custom_styles/normal = ExtResource( 2 )
 text = "  Menu  "
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/Restart" to="." method="_on_Restart_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/Menu" to="." method="_on_Menu_pressed"]
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/VBoxContainer/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/VBoxContainer/Menu" to="." method="_on_Menu_pressed"]

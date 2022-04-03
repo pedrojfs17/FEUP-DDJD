@@ -7,6 +7,9 @@ var SPEED: float = INITIAL_SPEED
 var SCORE: float = 0
 var PAPER_ROLLS: int = 0
 
+var MUSIC: bool = true
+var SOUNDFX: bool = true
+
 func _process(delta: float):
 	if SPEED < 25:
 		SPEED += INCREASE * delta

@@ -1,6 +1,8 @@
 extends CanvasLayer
 
 func _ready():
+	if Globals.SOUNDFX:
+		$Hit.play()
 	var distance = round(Globals.SCORE)
 	var rolls = Globals.PAPER_ROLLS
 	var score = distance + rolls * 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/player/player-2.png" type="Texture" id=1]
 [ext_resource path="res://assets/player/player-0.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/Projectile.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/items/PowerUp/shield.png" type="Texture" id=8]
 [ext_resource path="res://assets/sounds/player_shoot.ogg" type="AudioStream" id=9]
+[ext_resource path="res://assets/sounds/propulsor.ogg" type="AudioStream" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -60,3 +61,7 @@ texture = ExtResource( 8 )
 [node name="Shoot" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 9 )
 volume_db = -10.0
+
+[node name="Propulsor" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 10 )
+volume_db = 2.622
