@@ -31,8 +31,10 @@ const POWER_UPS = [
 func _reset_game():
 	randomize()
 	Globals.SPEED = Globals.INITIAL_SPEED
-	Globals.SCORE = 0
+	Globals.DISTANCE = 0
 	Globals.PAPER_ROLLS = 0
+	Globals.ENEMIES_KILLED = 0
+	Globals.EXTRAS = 0
 
 
 func _ready():

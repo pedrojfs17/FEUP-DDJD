@@ -1,4 +1,4 @@
 extends Label
 
 func _process(_delta):
-	text = str(round(Globals.SCORE))
+	text = str(round(Globals.DISTANCE))

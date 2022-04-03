@@ -9,4 +9,8 @@ func _on_BannerEnemy_body_entered(_body):
 func _on_BannerPowerUp_body_entered(_body):
 	Globals.banner_power_up()
 
+func hit():
+	Globals.kill_enemy()
+	queue_free()
+
 func get_class(): return "Banner"
