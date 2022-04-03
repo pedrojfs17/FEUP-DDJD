@@ -10,6 +10,9 @@ var PAPER_ROLLS: int = 0
 var ENEMIES_KILLED: int = 0
 var EXTRAS: int = 0
 
+var MUSIC: bool = true
+var SOUNDFX: bool = true
+
 func _process(delta: float):
 	if SPEED < 25:
 		SPEED += INCREASE * delta

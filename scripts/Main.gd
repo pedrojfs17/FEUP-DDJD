@@ -41,6 +41,8 @@ func _ready():
 	_reset_game()
 	_add_wall(Vector2(0, -1), Vector2(1600, 1))
 	_add_wall(Vector2(0, 769), Vector2(1600, 1))
+	if Globals.MUSIC:
+		$BackgroundMusic.play()
 
 
 func _add_wall(position: Vector2, size: Vector2):

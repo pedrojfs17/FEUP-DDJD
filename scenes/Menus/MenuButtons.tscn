@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/fonts/ChargeVectorThin-d9qdR.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://scenes/Menus/MenuButtons.gd" type="Script" id=2]
-[ext_resource path="res://scenes/Menus/MenuButtonsNormal.tres" type="StyleBox" id=3]
-[ext_resource path="res://scenes/Menus/MenuButtonsHover.tres" type="StyleBox" id=4]
-[ext_resource path="res://scenes/Menus/MenuButtonsPressed.tres" type="StyleBox" id=5]
+[ext_resource path="res://scripts/MenuButtons.gd" type="Script" id=2]
+[ext_resource path="res://themes/MenuButtonsNormal.tres" type="StyleBox" id=3]
+[ext_resource path="res://themes/MenuButtonsHover.tres" type="StyleBox" id=4]
+[ext_resource path="res://themes/MenuButtonsPressed.tres" type="StyleBox" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30

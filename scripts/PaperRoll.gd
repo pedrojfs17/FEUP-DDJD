@@ -5,6 +5,8 @@ func _process(_delta: float):
 
 func _on_PaperRoll_body_entered(_body):
 	Globals.catch_paper_roll()
+	if Globals.SOUNDFX:
+		$Coin.play()
 	$AnimatedSprite.play("Catch")
 
 func _on_AnimatedSprite_animation_finished():

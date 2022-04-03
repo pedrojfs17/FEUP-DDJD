@@ -31,6 +31,12 @@ func _ready():
 func _physics_process(delta):
 	velocity.y += GRAVITY
 	
+	if Globals.SOUNDFX:
+		if Input.is_action_just_pressed("move_up"):
+			$Sounds/Propulsor.play()
+		elif Input.is_action_just_released("move_up"):
+			$Sounds/Propulsor.stop()
+	
 	if Input.is_action_pressed("move_up") and not RECOVERING:
 		velocity.y = max(velocity.y + SPEED, -500)
 		FLATULENCE = max(FLATULENCE - 2 * delta, 0)
@@ -74,7 +80,9 @@ func _physics_process(delta):
 			enable_collisions()
 
 func shoot():
-	$Sounds/Shoot.play()
+	if Globals.SOUNDFX:
+		$Sounds/Shoot.play()
+		
 	var b = Projectile.instance()
 	owner.add_child(b)
 	b.transform = $Position2D.global_transform

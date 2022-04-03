@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/items/paper_2.png" type="Texture" id=1]
 [ext_resource path="res://assets/items/paper_3.png" type="Texture" id=2]
 [ext_resource path="res://assets/items/paper_1.png" type="Texture" id=3]
 [ext_resource path="res://assets/items/paper_0.png" type="Texture" id=4]
+[ext_resource path="res://assets/sounds/coin.ogg" type="AudioStream" id=5]
 [ext_resource path="res://scripts/PaperRoll.gd" type="Script" id=23]
 
 [sub_resource type="SpriteFrames" id=3]
@@ -33,6 +34,10 @@ animation = "Catch"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -5, 4 )
 shape = SubResource( 2 )
+
+[node name="Coin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -9.613
 
 [connection signal="body_entered" from="." to="." method="_on_PaperRoll_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
