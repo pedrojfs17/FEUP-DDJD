@@ -8,7 +8,7 @@ func _ready():
 		set_normal_texture(musicOnIcon)
 	else:
 		set_normal_texture(musicOffIcon)
-	set_scale(Vector2(0.1, 0.1))
+	set_scale(Vector2(0.25, 0.25))
 
 func _on_Music_pressed():
 	if Globals.MUSIC:

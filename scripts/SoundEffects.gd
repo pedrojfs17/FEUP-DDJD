@@ -8,7 +8,7 @@ func _ready():
 		set_normal_texture(soundOnIcon)
 	else:
 		set_normal_texture(soundOffIcon)
-	set_scale(Vector2(0.5, 0.5))
+	set_scale(Vector2(0.25, 0.25))
 
 func _on_Sound_Effects_pressed():
 	if Globals.SOUNDFX:
