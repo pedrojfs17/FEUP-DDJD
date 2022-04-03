@@ -25,7 +25,7 @@ custom_constants/margin_left = 20
 custom_constants/margin_bottom = 20
 
 [node name="ColorRect" type="ColorRect" parent="ScoreBoard"]
-margin_left = 10.0
+margin_left = 20.0
 margin_top = 20.0
 margin_right = 189.0
 margin_bottom = 122.0
@@ -37,26 +37,26 @@ margin_top = 20.0
 margin_right = 189.0
 margin_bottom = 122.0
 
-[node name="ScoreContainer" type="HBoxContainer" parent="ScoreBoard/VBoxContainer"]
+[node name="DistanceContainer" type="HBoxContainer" parent="ScoreBoard/VBoxContainer"]
 margin_right = 169.0
 margin_bottom = 49.0
 grow_vertical = 0
 theme = SubResource( 1 )
 
-[node name="Label" type="Label" parent="ScoreBoard/VBoxContainer/ScoreContainer"]
+[node name="Label" type="Label" parent="ScoreBoard/VBoxContainer/DistanceContainer"]
 margin_top = 12.0
-margin_right = 65.0
+margin_right = 124.0
 margin_bottom = 37.0
 custom_fonts/font = SubResource( 2 )
-text = "Score"
+text = "  Distance   "
 
-[node name="Score" type="Label" parent="ScoreBoard/VBoxContainer/ScoreContainer"]
-margin_left = 69.0
-margin_right = 97.0
+[node name="Distance" type="Label" parent="ScoreBoard/VBoxContainer/DistanceContainer"]
+margin_left = 128.0
+margin_right = 166.0
 margin_bottom = 49.0
 size_flags_vertical = 12
 custom_fonts/font = SubResource( 3 )
-text = "0"
+text = "0 "
 align = 1
 
 [node name="TPContainer" type="HBoxContainer" parent="ScoreBoard/VBoxContainer"]
@@ -66,15 +66,15 @@ margin_bottom = 102.0
 
 [node name="Label" type="Label" parent="ScoreBoard/VBoxContainer/TPContainer"]
 margin_top = 12.0
-margin_right = 65.0
+margin_right = 125.0
 margin_bottom = 37.0
 size_flags_horizontal = 0
 custom_fonts/font = SubResource( 2 )
-text = "Rolls"
+text = "  Rolls          "
 
 [node name="Rolls" type="Label" parent="ScoreBoard/VBoxContainer/TPContainer"]
-margin_left = 69.0
-margin_right = 97.0
+margin_left = 129.0
+margin_right = 167.0
 margin_bottom = 49.0
 custom_fonts/font = SubResource( 3 )
-text = "0"
+text = "0 "
