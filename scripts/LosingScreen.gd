@@ -17,7 +17,7 @@ func _ready():
 	text += "Extras: " + str(extra) + "\n\n"
 	text += "Score\n" + str(score)
 	
-	$PanelContainer/MarginContainer/Rows/Score.text = text
+	$PanelContainer/MarginContainer/Score.text = text
 
 func _on_Restart_pressed():
 	get_tree().change_scene("res://scenes/Main.tscn")

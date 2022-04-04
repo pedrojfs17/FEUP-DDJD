@@ -5,17 +5,15 @@
 [ext_resource path="res://themes/MenuButtonsHover.tres" type="StyleBox" id=3]
 [ext_resource path="res://themes/MenuButtonsPressed.tres" type="StyleBox" id=4]
 [ext_resource path="res://scripts/HowToPlayScreen.gd" type="Script" id=5]
+[ext_resource path="res://assets/gui/how_to_play.png" type="Texture" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.54902, 0.176471, 0.0980392, 1 )
+bg_color = Color( 0.831373, 0.607843, 0.560784, 1 )
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
-
-[sub_resource type="DynamicFont" id=2]
-size = 90
-font_data = ExtResource( 1 )
+border_color = Color( 0.54902, 0.176471, 0.0980392, 1 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 30
@@ -33,6 +31,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/panel = SubResource( 1 )
 
+[node name="Sprite" type="Sprite" parent="PanelContainer"]
+position = Vector2( 502, 115 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 6 )
+
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 margin_left = 10.0
 margin_top = 10.0
@@ -43,26 +46,13 @@ custom_constants/margin_top = 40
 custom_constants/margin_left = 40
 custom_constants/margin_bottom = 40
 
-[node name="Rows" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="Instructions" type="Label" parent="PanelContainer/MarginContainer"]
 margin_left = 40.0
 margin_top = 40.0
 margin_right = 964.0
 margin_bottom = 708.0
-
-[node name="HowToPlay" type="Label" parent="PanelContainer/MarginContainer/Rows"]
-margin_right = 924.0
-margin_bottom = 105.0
-custom_fonts/font = SubResource( 2 )
-text = "how to play"
-align = 1
-
-[node name="Instructions" type="Label" parent="PanelContainer/MarginContainer/Rows"]
-margin_left = 57.0
-margin_top = 109.0
-margin_right = 867.0
-margin_bottom = 622.0
-size_flags_horizontal = 4
-size_flags_vertical = 11
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.54902, 0.176471, 0.0980392, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "you are a feup freshman and the bathroom
 is nowhere in sight!
@@ -77,17 +67,18 @@ align = 1
 valign = 1
 uppercase = true
 
-[node name="GoBack" type="Button" parent="PanelContainer/MarginContainer/Rows"]
-margin_left = 388.0
-margin_top = 626.0
-margin_right = 535.0
-margin_bottom = 668.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[node name="GoBack" type="Button" parent="PanelContainer/MarginContainer"]
+margin_left = 40.0
+margin_top = 666.0
+margin_right = 964.0
+margin_bottom = 708.0
+size_flags_vertical = 8
+custom_colors/font_color = Color( 0.54902, 0.176471, 0.0980392, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/hover = ExtResource( 3 )
 custom_styles/pressed = ExtResource( 4 )
 custom_styles/normal = ExtResource( 2 )
 text = " go back "
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/GoBack" to="." method="_on_GoBack_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/GoBack" to="." method="_on_GoBack_pressed"]
