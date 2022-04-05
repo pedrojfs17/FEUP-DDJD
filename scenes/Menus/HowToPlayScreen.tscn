@@ -1,11 +1,20 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/fonts/ChargeVectorThin-d9qdR.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://themes/MenuButtonsNormal.tres" type="StyleBox" id=2]
 [ext_resource path="res://themes/MenuButtonsHover.tres" type="StyleBox" id=3]
 [ext_resource path="res://themes/MenuButtonsPressed.tres" type="StyleBox" id=4]
 [ext_resource path="res://scripts/HowToPlayScreen.gd" type="Script" id=5]
-[ext_resource path="res://assets/gui/how_to_play.png" type="Texture" id=6]
+[ext_resource path="res://assets/gui/how_to_play/howtoplay04.png" type="Texture" id=6]
+[ext_resource path="res://assets/gui/how_to_play/howtoplay05.png" type="Texture" id=7]
+[ext_resource path="res://assets/gui/how_to_play/howtoplay06.png" type="Texture" id=8]
+[ext_resource path="res://assets/gui/how_to_play/howtoplay07.png" type="Texture" id=9]
+[ext_resource path="res://assets/gui/how_to_play/howtoplay08.png" type="Texture" id=10]
+[ext_resource path="res://assets/gui/how_to_play/howtoplay09.png" type="Texture" id=11]
+[ext_resource path="res://assets/gui/how_to_play/howtoplay00.png" type="Texture" id=12]
+[ext_resource path="res://assets/gui/how_to_play/howtoplay01.png" type="Texture" id=13]
+[ext_resource path="res://assets/gui/how_to_play/howtoplay02.png" type="Texture" id=14]
+[ext_resource path="res://assets/gui/how_to_play/howtoplay03.png" type="Texture" id=15]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.831373, 0.607843, 0.560784, 1 )
@@ -14,6 +23,14 @@ border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
 border_color = Color( 0.54902, 0.176471, 0.0980392, 1 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
 
 [sub_resource type="DynamicFont" id=3]
 size = 30
@@ -31,10 +48,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/panel = SubResource( 1 )
 
+[node name="AnimatedSprite" type="AnimatedSprite" parent="PanelContainer"]
+position = Vector2( 502, 115 )
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 5 )
+frame = 3
+playing = true
+
 [node name="Sprite" type="Sprite" parent="PanelContainer"]
 position = Vector2( 502, 115 )
 scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 6 )
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 margin_left = 10.0

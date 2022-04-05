@@ -1,4 +1,7 @@
-extends VBoxContainer
+extends CanvasLayer
+
+func _ready():
+	$New_Game.set_scale(Vector2(0.1, 0.1))
 
 func _on_New_Game_pressed():
 	get_tree().change_scene("res://scenes/Main.tscn")

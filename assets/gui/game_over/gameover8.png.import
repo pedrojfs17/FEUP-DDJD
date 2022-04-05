@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/el_dorado.png-1f4d8d6f5226aa20ec0f00c2dbbe61c0.stex"
+path="res://.import/gameover8.png-eda4bdf9d87682f79c1d314a9e4c023c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/el_dorado.png"
-dest_files=[ "res://.import/el_dorado.png-1f4d8d6f5226aa20ec0f00c2dbbe61c0.stex" ]
+source_file="res://assets/gui/game_over/gameover8.png"
+dest_files=[ "res://.import/gameover8.png-eda4bdf9d87682f79c1d314a9e4c023c.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
