@@ -22,8 +22,6 @@ func shoot():
 	
 func hit():
 	$AnimationPlayer.play("hit")
-
-func _on_Hit_animation_finished(anim_name):
 	LIVES -= 1
 	if LIVES == 0:
 		Globals.kill_enemy()

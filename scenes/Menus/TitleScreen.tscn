@@ -51,7 +51,6 @@ custom_constants/margin_bottom = 40
 position = Vector2( 502, 115 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="Sprite" type="Sprite" parent="PanelContainer/MarginContainer"]

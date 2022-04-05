@@ -74,8 +74,11 @@ func _physics_process(delta):
 	
 	if SHIELD_TIME >= 0:
 		SHIELD_TIME += delta
+		if SHIELD_TIME > 4:
+			$Shield.modulate.a = 1 - max(SHIELD_TIME - 4, 0)
 		if SHIELD_TIME > 5:
 			SHIELD_TIME = -1
+			$Shield.modulate.a = 1
 			$Shield.visible = false
 			enable_collisions()
 
@@ -88,13 +91,11 @@ func shoot():
 	b.transform = $Position2D.global_transform
 	
 func catch_invincibility():
-	print("Caught Invincibility")
 	SHIELD_TIME = 0
 	disable_collision()
 	$Shield.visible = true
 	
 func catch_speedup():
-	print("Caught Speed")
 	if SPEEDUP_TIME == -1:
 		SPEEDUP_SPEED = Globals.SPEED
 	SPEEDUP_TIME = 0
@@ -106,11 +107,9 @@ func disable_collision():
 	self.set_collision_layer_bit(6, true)
 	self.set_collision_mask_bit(2,false)
 	INVINCIBLE = true
-	print("Disabled enemy collision")
 	
 func enable_collisions():
 	self.set_collision_layer_bit(0, true)
 	self.set_collision_layer_bit(6, false)
 	self.set_collision_mask_bit(2,true)
 	INVINCIBLE = false
-	print("Not invincible")
