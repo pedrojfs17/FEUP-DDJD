@@ -48,7 +48,7 @@ custom_styles/panel = SubResource( 1 )
 position = Vector2( 512, 125 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 2 )
-frame = 5
+frame = 1
 playing = true
 
 [node name="New_Game" type="TextureButton" parent="."]
