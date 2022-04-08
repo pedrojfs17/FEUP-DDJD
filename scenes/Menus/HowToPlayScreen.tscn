@@ -1,9 +1,8 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/fonts/ChargeVectorThin-d9qdR.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://themes/MenuButtonsNormal.tres" type="StyleBox" id=2]
-[ext_resource path="res://themes/MenuButtonsHover.tres" type="StyleBox" id=3]
-[ext_resource path="res://themes/MenuButtonsPressed.tres" type="StyleBox" id=4]
+[ext_resource path="res://assets/gui/menu_selected.png" type="Texture" id=2]
+[ext_resource path="res://assets/gui/menu.png" type="Texture" id=3]
 [ext_resource path="res://scripts/HowToPlayScreen.gd" type="Script" id=5]
 [ext_resource path="res://assets/gui/how_to_play/howtoplay04.png" type="Texture" id=6]
 [ext_resource path="res://assets/gui/how_to_play/howtoplay05.png" type="Texture" id=7]
@@ -36,10 +35,6 @@ animations = [ {
 size = 30
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=4]
-size = 30
-font_data = ExtResource( 1 )
-
 [node name="HowToPlayScreen" type="CanvasLayer"]
 script = ExtResource( 5 )
 
@@ -52,7 +47,7 @@ custom_styles/panel = SubResource( 1 )
 position = Vector2( 502, 115 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 5 )
-frame = 3
+frame = 4
 playing = true
 
 [node name="Sprite" type="Sprite" parent="PanelContainer"]
@@ -90,18 +85,14 @@ align = 1
 valign = 1
 uppercase = true
 
-[node name="GoBack" type="Button" parent="PanelContainer/MarginContainer"]
-margin_left = 40.0
-margin_top = 666.0
-margin_right = 964.0
-margin_bottom = 708.0
-size_flags_vertical = 8
-custom_colors/font_color = Color( 0.54902, 0.176471, 0.0980392, 1 )
-custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
-custom_fonts/font = SubResource( 4 )
-custom_styles/hover = ExtResource( 3 )
-custom_styles/pressed = ExtResource( 4 )
-custom_styles/normal = ExtResource( 2 )
-text = " go back "
+[node name="Menu" type="TextureButton" parent="."]
+margin_left = 372.0
+margin_top = 616.0
+margin_right = 1257.0
+margin_bottom = 932.0
+rect_scale = Vector2( 0.3, 0.3 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 2 )
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/GoBack" to="." method="_on_GoBack_pressed"]
+[connection signal="pressed" from="Menu" to="." method="_on_Menu_pressed"]

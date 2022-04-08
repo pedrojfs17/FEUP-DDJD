@@ -19,8 +19,9 @@ func _ready():
 	
 	$PanelContainer/MarginContainer/Score.text = text
 
-func _on_Restart_pressed():
-	get_tree().change_scene("res://scenes/Main.tscn")
-
 func _on_Menu_pressed():
 	get_tree().change_scene("res://scenes/Menus/TitleScreen.tscn")
+
+
+func _on_New_Game_pressed():
+	get_tree().change_scene("res://scenes/Main.tscn")
